@@ -5,11 +5,12 @@ import {
   ImageBackground,
   Text,
   TouchableOpacity,
-  Image,
+  Image,ScrollView
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import { RectButton, TestButton } from "../components/index";
+import { LinearGradient } from "expo-linear-gradient";
 
 const GetStarted = () => {
   const navigation = useNavigation();
@@ -18,12 +19,26 @@ const GetStarted = () => {
   };
   return (
     <SafeAreaView className="flex-1">
-      <View className="items-center mx-5">
-        <Image source={assets.getstarted} className=" my-5" />
-        <View className=" flex items-center ">
-          <Text className="font-semibold text-4xl pb-2">Launch Your</Text>
-          <Text className="font-semibold text-4xl pb-5">Journey</Text>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+     
+      <ImageBackground source={assets.muCraft} className="flex-1" resizeMode="cover" >
+      <LinearGradient
+            colors={["rgba(0, 0, 0,0)", "rgba(255, 255, 255,0.9)", "white"]}
+            locations={[0, 0.5, 1]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0, y: 1 }}
+          >
+        <View className="h-full justify-end px-10 pb-5">
+          <Text className="font-semibold text-center text-3xl pt-0 pb-2">Join Us Today!</Text>
+          {/* <Text className="font-semibold text-4xl pb-2">Journey</Text> */}
+          
+          <TestButton  >
+            Sign up with Facebook
+          </TestButton>
+          <TestButton  >
+            Sign up with Google
+          </TestButton>
+         
+          <View className="flex-row items-center mt-2 mb-4">
             <View className="h-px flex-1 bg-slate-300" />
             <View>
               <Text className="w-12 text-center font-semibold">or</Text>
@@ -37,12 +52,14 @@ const GetStarted = () => {
           >
             Sign in with password
           </RectButton>
-          <Text className=" text-md ">
+          <Text className="text-center text-md mt-4">
             Don't have an account?{" "}
             <Text className="font-semibold text-md ">Sign up</Text>
           </Text>
         </View>
-      </View>
+        </LinearGradient>
+        </ImageBackground>
+    
     </SafeAreaView>
   );
 };

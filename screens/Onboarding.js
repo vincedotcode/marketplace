@@ -10,6 +10,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import { RectButton, TestButton } from "../components/index";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Onboarding = () => {
   const navigation = useNavigation();
@@ -17,26 +18,39 @@ const Onboarding = () => {
     navigation.navigate("GetStarted");
   };
   return (
-    <SafeAreaView className="">
-      <View className="items-center">
-        <Image source={assets.onboarding2} className="scale-125 my-10 h-75" />
-        <View className="h-25 flex items-center self-end">
-          <Text className="font-semibold text-4xl pb-2">Buy From</Text>
-          <Text className="font-semibold text-4xl pb-5">Micro SMEs</Text>
-          <Text className=" text-md pb-4 px-4">
+    <SafeAreaView className="flex-1">
+      
+        <ImageBackground source={assets.getstarted} className="flex-1" resizeMode="cover" >
+          {/* overlay background */}
+          <LinearGradient
+            colors={["transparent", "black", "black"]}
+            locations={[0, 0.95, 1]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0, y: 1 }}
+          >
+        <View className="h-full justify-end px-10 pb-10">
+          <Text className="font-semibold text-white text-4xl pb-2">Buy From</Text>
+          <Text className="font-semibold text-white text-4xl pb-5">Micro SMEs</Text>
+          <Text className=" text-white text-lg pb-4">
             Discover Mauritius' micro SMEs. Shop local, find unique treasures,
             and support small businesses.
           </Text>
-        </View>
+          
         <RectButton
           minWidth={250}
           fontSize={SIZES.font}
+          backgroundColor={COLORS.transparent}
+          showBorder
+          borderColor={COLORS.white}
           handlePress={handleNavigateToGetStarted}
         >
           Get Started
         </RectButton>
-     
-      </View>
+        </View>
+          </LinearGradient>
+
+     </ImageBackground>
+      
     </SafeAreaView>
   );
 };

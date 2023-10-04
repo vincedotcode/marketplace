@@ -28,25 +28,34 @@ export const CircleButton = ({ imgUrl, handlePress, ...props }) => {
   );
 };
 
-export const RectButton = ({ minWidth, fontSize, handlePress,children, ...props }) => {
+export const RectButton = ({
+  minWidth,
+  fontSize,
+  handlePress,
+  children,
+  backgroundColor, 
+  textColor,showBorder,borderColor,
+  ...props
+}) => {
   return (
     <TouchableOpacity
       style={{
-        backgroundColor: COLORS.primary,
+        backgroundColor: backgroundColor || COLORS.primary, // Use the provided backgroundColor or default to COLORS.primary
         padding: SIZES.small,
         borderRadius: SIZES.extraLarge,
         minWidth: minWidth,
+        borderWidth: showBorder ? 1 : 0, // Conditionally set borderWidth
+        borderColor: showBorder ? borderColor : 'transparent', // Conditionally set borderColor
         ...props,
-        cursor:'pointer'
+        cursor: "pointer",
       }}
-      
       onPress={handlePress}
     >
       <Text
         style={{
           fontFamily: FONTS.semiBold,
           fontSize: fontSize,
-          color: COLORS.white,
+          color: textColor || COLORS.white,
           textAlign: "center",
         }}
       >
@@ -55,12 +64,14 @@ export const RectButton = ({ minWidth, fontSize, handlePress,children, ...props 
     </TouchableOpacity>
   );
 };
-export const TestButton =({handlePress,children})=>{
-  return(
-    <TouchableOpacity onPress={handlePress}>
-<Text>
-  {children}
-</Text>
+export const TestButton = ({ handlePress, children }) => {
+  return (
+    <TouchableOpacity
+   
+      className="border rounded-xl border-slate-300 w-80 px-6 py-4 my-2"
+      onPress={handlePress}
+    >
+      <Text className="font-semibold">{children}</Text>
     </TouchableOpacity>
   );
 };
