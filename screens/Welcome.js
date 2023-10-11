@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import {
   View,
   SafeAreaView,
@@ -12,8 +13,17 @@ import { LinearGradient } from "expo-linear-gradient";
 
 const Welcome = () => {
   const navigation = useNavigation();
+  const user = useSelector((state) => state.auth.user);
+
   const handleNavigateToHome = () => {
-    navigation.navigate("Onboarding");
+   
+    if (user) {
+      navigation.navigate("Home");
+    }
+    else {
+      navigation.navigate("Onboarding");
+    }
+
   };
   return (
     <SafeAreaView className="flex-1">

@@ -14,16 +14,34 @@ const HomeHeader = ({ onSearch }) => {
       <View
         style={{
           flexDirection: "row",
-          justifyContent: "space-between",
           alignItems: "center",
         }}
-      >
-        <Image
-          source={assets.logo}
-          resizeMode="contain"
-          style={{ width: 90, height: 25 }}
-        />
 
+        className="flex justify-between"
+      >
+
+        <View style={{ marginVertical: SIZES.font }}>
+          <Text
+            style={{
+              fontFamily: FONTS.regular,
+              fontSize: SIZES.small,
+              color: COLORS.white,
+            }}
+          >
+            Hello Victoria 👋
+          </Text>
+
+          <Text
+            style={{
+              fontFamily: FONTS.bold,
+              fontSize: SIZES.large,
+              color: COLORS.white,
+              marginTop: SIZES.base / 2,
+            }}
+          >
+            Let’s find masterpiece Art
+          </Text>
+        </View>
         <View style={{ width: 45, height: 45 }}>
           <Image
             source={assets.person01}
@@ -44,28 +62,7 @@ const HomeHeader = ({ onSearch }) => {
         </View>
       </View>
 
-      <View style={{ marginVertical: SIZES.font }}>
-        <Text
-          style={{
-            fontFamily: FONTS.regular,
-            fontSize: SIZES.small,
-            color: COLORS.white,
-          }}
-        >
-          Hello Victoria 👋
-        </Text>
 
-        <Text
-          style={{
-            fontFamily: FONTS.bold,
-            fontSize: SIZES.large,
-            color: COLORS.white,
-            marginTop: SIZES.base / 2,
-          }}
-        >
-          Let’s find masterpiece Art
-        </Text>
-      </View>
 
       <View style={{ marginTop: SIZES.font }}>
         <View

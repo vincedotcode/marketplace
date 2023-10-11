@@ -15,7 +15,7 @@ import { LinearGradient } from "expo-linear-gradient";
 const GetStarted = () => {
   const navigation = useNavigation();
   const handleNavigateToHome = () => {
-    navigation.navigate("Home");
+    navigation.navigate("Signin");
   };
   return (
     <SafeAreaView className="flex-1">

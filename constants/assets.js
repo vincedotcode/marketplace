@@ -19,6 +19,7 @@ import person01 from "../assets/images/person01.png";
 import person02 from "../assets/images/person02.png";
 import person03 from "../assets/images/person03.png";
 import person04 from "../assets/images/person04.png";
+import wallpaperlogin from "../assets/images/Rhum2.jpg";
 
 import muCraft from "../assets/images/muCraft.jpg";
 export default {
@@ -40,5 +41,7 @@ export default {
   person01,
   person02,
   person03,
-  person04,muCraft
+  person04,
+  muCraft,
+  wallpaperlogin
 };
